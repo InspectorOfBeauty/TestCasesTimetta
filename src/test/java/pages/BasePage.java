@@ -7,11 +7,12 @@ import tests.BaseTest;
 
 public abstract class BasePage {
     private WebDriver driver;
-    private WebDriverWait wait;
+    protected WebDriverWait wait;
+
 
     public BasePage() {
         driver = BaseTest.getDriver();
         PageFactory.initElements(driver, this);
-        wait = new WebDriverWait(driver, 5);
+        wait = new WebDriverWait(driver, 30);
     }
 }

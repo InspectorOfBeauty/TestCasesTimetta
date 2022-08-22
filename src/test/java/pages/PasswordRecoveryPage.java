@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import tests.BaseTest;
 import utils.JsonUtils;
 import utils.PropertyReader;
@@ -28,6 +29,7 @@ public class PasswordRecoveryPage extends BasePage {
     private List<WebElement> notifications;
 
     public void fillEmailField(String email) {
+        wait.until(ExpectedConditions.elementToBeClickable(emailField));
         emailField.click();
         emailField.sendKeys(email);
     }
@@ -39,7 +41,9 @@ public class PasswordRecoveryPage extends BasePage {
     public void assertThatPasswordRecoveryPageIsOpened(String address) {
         assertThat(BaseTest.getDriver().getCurrentUrl()).as("Incorrect page is opened!").isEqualTo(address);
     }
+
     public void pressPasswordRecoveryButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(passwordRecoveryButton));
         passwordRecoveryButton.click();
     }
 
