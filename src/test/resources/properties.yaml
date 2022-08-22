@@ -1,0 +1,3 @@
+PasswordRecoveryPageAddress : https://auth.timetta.com/password-recovery
+PasswordRecoveryNotification1 : Если пользователь с указанным адресом эл. почты существует, то ему отправлено письмо с инструкцией по восстановлению пароля.
+PasswordRecoveryNotification2 : Страницу можно закрыть.
