@@ -15,16 +15,16 @@ import java.util.List;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class PasswordRecoveryPage extends BasePage {
-    @FindBy(xpath = "//div[@class = 'card-body']/form/div/input")
+    @FindBy(xpath = "//div[@class = 'card-body']//input[@type = 'email']")
     private WebElement emailField;
 
-    @FindBy(xpath = "//div[@class = 'card-body']/form/div/div/button")
+    @FindBy(xpath = "//div[@class = 'card-body']//button[@type = 'submit']")
     private WebElement passwordRecoveryButton;
 
-    @FindBy(xpath = "//div[@class = 'card-body']/form/a")
-    private WebElement loginPagelink;
+    @FindBy(xpath = "//div[@class = 'card-body']//a")
+    private WebElement loginPageLink;
 
-    @FindBy(xpath = "//div[@class = 'card-body']/form/p")
+    @FindBy(xpath = "//div[@class = 'card-body']//p")
     private List<WebElement> notifications;
 
     public void fillEmailField(String email) {
@@ -59,8 +59,8 @@ public class PasswordRecoveryPage extends BasePage {
     }
 
     public void assertThatLoginPageLinkChangedStyle() {
-        loginPagelink = BaseTest.getDriver().findElement(By.xpath(("//div[@class = 'card-body']/form/div/div/a")));
-        assertThat(loginPagelink.getAttribute("class")).as("Login page link did't change its style!").isEqualTo("btn btn-primary");
+        loginPageLink = BaseTest.getDriver().findElement(By.xpath(("//div[@class = 'card-body']/form/div/div/a")));
+        assertThat(loginPageLink.getAttribute("class")).as("Login page link did't change its style!").isEqualTo("btn btn-primary");
     }
 
     public void assertThatRecoveryRequestWorked(String email) {

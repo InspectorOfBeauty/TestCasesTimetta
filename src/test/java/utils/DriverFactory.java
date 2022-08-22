@@ -14,13 +14,13 @@ public class DriverFactory {
     public static WebDriver getDriver(Browser browser) {
         switch (browser) {
             case CHROME:
-                DesiredCapabilities capabilitiesForChrom = DesiredCapabilities.chrome();
+                DesiredCapabilities capabilitiesForChrome = DesiredCapabilities.chrome();
                 LoggingPreferences logPrefs = new LoggingPreferences();
                 logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
-                capabilitiesForChrom.setCapability("goog:loggingPrefs", logPrefs);
+                capabilitiesForChrome.setCapability("goog:loggingPrefs", logPrefs);
 
                 System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-                return new ChromeDriver(capabilitiesForChrom);
+                return new ChromeDriver(capabilitiesForChrome);
             default:
                 throw new RuntimeException("Unsupported browser " + browser);
         }
